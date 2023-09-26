@@ -24,3 +24,17 @@ func TestLower(t *testing.T) {
 		t.Errorf("expected %v but got %v", expect, result)
 	}
 }
+
+func BenchmarkUpper(t *testing.B) {
+	s := "abcdefghijklmnopqrstuvwxyz"
+	for i := 0; i < t.N; i++ {
+		_ = Upper(s)
+	}
+}
+
+func BenchmarkLower(t *testing.B) {
+	s := "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	for i := 0; i < t.N; i++ {
+		_ = Lower(s)
+	}
+}
